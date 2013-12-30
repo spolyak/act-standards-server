@@ -1,0 +1,8 @@
+---
+applications:
+- name: act-standards-server
+  memory: 1G
+  instances: 1
+  host: act-standards-server
+  domain: pcfapps.vsel-canopy.com
+  path: .
