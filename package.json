@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
   },
   "dependencies": {
-	    "express": "~3.3.4"
+	    "express": "~3.3.4",
+	    "jade": "*",
+	    "iniparser" : "*"
 	  },
 	  "engines": {
 	    "node": "0.10.x",
