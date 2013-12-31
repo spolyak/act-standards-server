@@ -5,7 +5,7 @@ block content
       div.jumbotron
         h1 #{title}
         p Access to ACT's Published Standards
-        p: a(role='button').btn.btn-primary.btn-lg Learn more
+        p: a(role='button' data-toggle="modal" data-target="#standardsModalInfo").btn.btn-primary.btn-lg Learn more
         p: small Database reports sets: 
           - for (var i in standardsMap) { 
           span #{standardsMap[i].name} 
@@ -120,6 +120,13 @@ block content
                 td.filecol: a(href='/resources/DCCRS2013writing.rdf'): img(src='/images/rdf.gif') 
                 td.filecol: a(href='/resources/DCCRS2013writing.json'): img(src='/images/json.png')                                                      
       div: footer © 2013 BY ACT, INC.
-
-                                                
-  
+      div(tabindex='-1' role='dialog' aria-labelledby='infoModalLabel' aria-hidden='true').modal.fade#standardsModalInfo 
+        div.modal-dialog
+          div.modal-content
+            div.modal-header
+              button(type='button' data-dismiss='modal' aria-hidden='true').close &times;
+              h4.modal-title#infoModalLabel ACT Standards Info
+              div.modal-body
+                div Place editorial content here about ACT Standards.				  						
+              div.modal-footer
+                button(type='button' data-dismiss='modal').btn.btn-default Cancel
