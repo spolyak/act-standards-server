@@ -4,7 +4,7 @@
   "description": "act-standards-service",
   "main": "web.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha -w"	
+    "test": "node_modules/.bin/mocha"	
   },
   "dependencies": {
 	    "express": "~3.3.4",
