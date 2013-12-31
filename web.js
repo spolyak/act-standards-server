@@ -44,6 +44,7 @@ app.get('/resources/S:id', function(req, res) {
 	});
 });
 
+
 http.createServer(app).listen(process.env.PORT || config.port, function() {
 	console.log('ACT Standards Server started');
 });
