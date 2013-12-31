@@ -6,7 +6,7 @@ block content
         h1 #{title}
         p Access to ACT's Published Standards
         p: a(role='button').btn.btn-primary.btn-lg Learn more
-        p Database reports sets: 
+        p: small Database reports sets: 
           - for (var i in standardsMap) { 
           span #{standardsMap[i].name} 
           - }
