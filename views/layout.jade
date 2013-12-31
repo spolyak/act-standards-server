@@ -19,4 +19,8 @@ html(lang='en')
     link(rel='apple-touch-icon-precomposed', href='/ico/apple-touch-icon-57-precomposed.png')
     link(rel='shortcut icon', href='/ico/favicon.png')     
   body
+    ul.nav.nav-tabs
+      li.active: a(href='/') Home
+      li: a(href='/library') Library
+      li.pull-right: a(href='http://act.org'): img(src='/images/logo-blue.png')    
     block content 
