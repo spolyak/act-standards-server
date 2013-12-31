@@ -4,7 +4,7 @@
   "description": "act-standards-service",
   "main": "web.js",
   "scripts": {
-    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+    "test": "node_modules/.bin/mocha -w"	
   },
   "dependencies": {
 	    "express": "~3.3.4",
@@ -24,6 +24,10 @@
     "ACT",
     "standards"
   ],
+  "devDependencies": {
+	   "mocha": "*",
+	   "should": ">= 0.0.1"
+  },
   "author": "Steve Polyak",
   "license": "BSD",
   "readmeFilename": "README.md"
