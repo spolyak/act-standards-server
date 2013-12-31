@@ -1,5 +1,9 @@
 extends layout
  
 block content
-    img(src='/images/logo-blue.png')
-    p Document D#{id}
+    div.container
+      div.jumbotron
+        h1 #{title}
+        p Document: D#{id}
+        p Format: #{type}
+      

@@ -1,3 +1,3 @@
-window.onload = function() {
-  document.getElementById('smile').innerHTML = ':)';
-};
+//window.onload = function() {
+//  document.getElementById('smile').innerHTML = ':)';
+//};

@@ -1,4 +1,4 @@
-# act-standards-service [ ![Codeship Status for spolyak/act-standards-server](https://www.codeship.io/projects/45dee0e0-53ef-0131-d4bd-365fed591f21/status?branch=master)](https://www.codeship.io/projects/11534) [![Build Status](https://travis-ci.org/spolyak/act-standards-server.png?branch=master)](https://travis-ci.org/spolyak/act-standards-server)
+# act-standards-server [ ![Codeship Status for spolyak/act-standards-server](https://www.codeship.io/projects/45dee0e0-53ef-0131-d4bd-365fed591f21/status?branch=master)](https://www.codeship.io/projects/11534) [![Build Status](https://travis-ci.org/spolyak/act-standards-server.png?branch=master)](https://travis-ci.org/spolyak/act-standards-server)
 
 ## Objective
 This project is designed to provide HTML and REST service access to published ACT services.

@@ -5,7 +5,11 @@ block content
       div.jumbotron
         h1 #{title}
         p Access to ACT's Published Standards
-        p: a(role='button').btn.btn-primary.btn-lg Learn more   
+        p: a(role='button').btn.btn-primary.btn-lg Learn more
+        p Database reports sets: 
+          - for (var i in standardsMap) { 
+          span #{standardsMap[i].name} 
+          - }
       div.panel.panel-info
         div.panel-heading ACT Standards
         div.panel-body
@@ -30,43 +34,43 @@ block content
               tr
                 td 
                 td English
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')
+                td.filecol: a(href='/resources/DCRSenglish'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCRSenglish.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCRSenglish.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCRSenglish.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCRSenglish.json'): img(src='/images/json.png')
               tr
                 td 
                 td Mathematics
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')   
+                td.filecol: a(href='/resources/DCRSmathematics'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCRSmathematics.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCRSmathematics.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCRSmathematics.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCRSmathematics.json'): img(src='/images/json.png')  
                tr
                 td 
                 td Reading
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')  
+                td.filecol: a(href='/resources/DCRSreading'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCRSreading.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCRSreading.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCRSreading.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCRSreading.json'): img(src='/images/json.png')  
                tr
                 td 
                 td Science
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')  
+                td.filecol: a(href='/resources/DCRSscience'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCRSscience.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCRSscience.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCRSscience.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCRSscience.json'): img(src='/images/json.png')  
               tr
                 td 
                 td Writing
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')                                                       
+                td.filecol: a(href='/resources/DCRSwriting'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCRSwriting.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCRSwriting.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCRSwriting.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCRSwriting.json'): img(src='/images/json.png')                                                       
               tr
                 td College and Career Readiness Standards (CCRS)
                 td 
@@ -78,43 +82,43 @@ block content
               tr
                 td 
                 td English
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')
+                td.filecol: a(href='/resources/DCCRS2013english'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCCRS2013english.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCCRS2013english.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCCRS2013english.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCCRS2013english.json'): img(src='/images/json.png') 
               tr
                 td 
                 td Mathematics
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')   
+                td.filecol: a(href='/resources/DCCRS2013mathematics'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCCRS2013mathematics.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCCRS2013mathematics.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCCRS2013mathematics.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCCRS2013mathematics.json'): img(src='/images/json.png') 
                tr
                 td 
                 td Reading
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')  
+                td.filecol: a(href='/resources/DCCRS2013reading'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCCRS2013reading.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCCRS2013reading.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCCRS2013reading.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCCRS2013reading.json'): img(src='/images/json.png')
                tr
                 td 
                 td Science
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')  
+                td.filecol: a(href='/resources/DCCRS2013science'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCCRS2013science.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCCRS2013science.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCCRS2013science.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCCRS2013science.json'): img(src='/images/json.png') 
               tr
                 td 
                 td Writing
-                td.filecol: span.glyphicon.glyphicon-eye-open
-                td.filecol: span.glyphicon.glyphicon-file
-                td.filecol: span.glyphicon.glyphicon-th
-                td.filecol: img(src='/images/rdf.gif') 
-                td.filecol: img(src='/images/json.png')                                                       
+                td.filecol: a(href='/resources/DCCRS2013writing'): span.glyphicon.glyphicon-eye-open
+                td.filecol: a(href='/resources/DCCRS2013writing.pdf'): span.glyphicon.glyphicon-file
+                td.filecol: a(href='/resources/DCCRS2013writing.csv'): span.glyphicon.glyphicon-th
+                td.filecol: a(href='/resources/DCCRS2013writing.rdf'): img(src='/images/rdf.gif') 
+                td.filecol: a(href='/resources/DCCRS2013writing.json'): img(src='/images/json.png')                                                      
       div: footer © 2013 BY ACT, INC.
 
                                                 

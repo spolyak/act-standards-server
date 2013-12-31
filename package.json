@@ -9,7 +9,8 @@
   "dependencies": {
 	    "express": "~3.3.4",
 	    "jade": "*",
-	    "iniparser" : "*"
+	    "iniparser" : "*",
+	    "mongoose": "*"
 	  },
 	  "engines": {
 	    "node": "0.10.x",
