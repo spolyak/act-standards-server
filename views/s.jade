@@ -5,20 +5,26 @@ block content
       div.jumbotron
         h1 #{title}
         p Statement: S#{id}
-        p Format: #{type}
+        p Description: #{standard.description}
       div.row.marketing
         div.col-lg-6
           h4 URI
-          p #{standard.uri}
-          h4 Description
-          p #{standard.description}
+          p: small: a(href="#{standard.uri}") #{standard.uri}
+          h4 Subject
+          p #{standard.subject}
           h4 Score Range
           p #{standard.score_range}          
-        div.col-lg-6
-          h4 List Position
-          p #{standard.list_id}        
+        div.col-lg-6      
           h4 Is Part Of
-          p #{standard.is_part_of}
+          p: small: a(href="#{standard.is_part_of}") #{standard.is_part_of}
           h4 Is Child Of
-          p #{standard.is_child_of}          
-      
+          p: small: a(href="#{standard.is_part_of}") #{standard.is_part_of} 
+          h4 List Position
+          p #{standard.list_id}                   
+        div.row.marketing
+        div.col-lg-6
+          h4 Has Child
+          p: ul
+            - for (var c in children) { 
+            li: small: a(href="#{children[c]}") #{children[c]} 
+            - }            

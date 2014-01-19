@@ -6,10 +6,6 @@ block content
         h1 #{title}
         p Access to ACT's Published Standards
         p: a(role='button' data-toggle="modal" data-target="#standardsModalInfo").btn.btn-primary.btn-lg Learn more
-        p: small Database reports sets: 
-          - for (var i in standardsMap) { 
-          span #{standardsMap[i].name} 
-          - }
       div.panel.panel-info
         div.panel-heading ACT Standards
         div.panel-body
@@ -24,7 +20,8 @@ block content
                 th.filecol RDF
                 th.filecol JSON                                                     
               tr
-                td College and Career Readiness Standards (CCRS)
+                td: a(href="http://www.act.org/standard/index.html") College and Career Readiness Standards (CCRS)  
+                  span.glyphicon.glyphicon-new-window 
                 td 
                 td.filecol 
                 td.filecol
@@ -33,7 +30,8 @@ block content
                 td.filecol               
               tr
                 td 
-                td English
+                td: a(href="http://www.act.org/standard/planact/english/index.html") English 
+                  span.glyphicon.glyphicon-new-window
                 td.filecol: a(href='/resources/DCCRS2013english'): span.glyphicon.glyphicon-eye-open
                 td.filecol: a(href='/resources/DCCRS2013english.pdf'): span.glyphicon.glyphicon-file
                 td.filecol: a(href='/resources/DCCRS2013english.csv'): span.glyphicon.glyphicon-th
@@ -41,7 +39,8 @@ block content
                 td.filecol: a(href='/resources/DCCRS2013english.json'): img(src='/images/json.png') 
               tr
                 td 
-                td Mathematics
+                td: a(href="http://www.act.org/standard/planact/math/index.html") Mathematics 
+                  span.glyphicon.glyphicon-new-window
                 td.filecol: a(href='/resources/DCCRS2013mathematics'): span.glyphicon.glyphicon-eye-open
                 td.filecol: a(href='/resources/DCCRS2013mathematics.pdf'): span.glyphicon.glyphicon-file
                 td.filecol: a(href='/resources/DCCRS2013mathematics.csv'): span.glyphicon.glyphicon-th
@@ -49,7 +48,8 @@ block content
                 td.filecol: a(href='/resources/DCCRS2013mathematics.json'): img(src='/images/json.png') 
                tr
                 td 
-                td Reading
+                td: a(href="http://www.act.org/standard/planact/reading/index.html") Reading 
+                  span.glyphicon.glyphicon-new-window                
                 td.filecol: a(href='/resources/DCCRS2013reading'): span.glyphicon.glyphicon-eye-open
                 td.filecol: a(href='/resources/DCCRS2013reading.pdf'): span.glyphicon.glyphicon-file
                 td.filecol: a(href='/resources/DCCRS2013reading.csv'): span.glyphicon.glyphicon-th
@@ -57,7 +57,8 @@ block content
                 td.filecol: a(href='/resources/DCCRS2013reading.json'): img(src='/images/json.png')
                tr
                 td 
-                td Science
+                td: a(href="http://www.act.org/standard/planact/science/index.html") Science 
+                  span.glyphicon.glyphicon-new-window                
                 td.filecol: a(href='/resources/DCCRS2013science'): span.glyphicon.glyphicon-eye-open
                 td.filecol: a(href='/resources/DCCRS2013science.pdf'): span.glyphicon.glyphicon-file
                 td.filecol: a(href='/resources/DCCRS2013science.csv'): span.glyphicon.glyphicon-th
@@ -65,7 +66,8 @@ block content
                 td.filecol: a(href='/resources/DCCRS2013science.json'): img(src='/images/json.png') 
               tr
                 td 
-                td Writing
+                td: a(href="http://www.act.org/standard/planact/writing/index.html") Writing 
+                  span.glyphicon.glyphicon-new-window                
                 td.filecol: a(href='/resources/DCCRS2013writing'): span.glyphicon.glyphicon-eye-open
                 td.filecol: a(href='/resources/DCCRS2013writing.pdf'): span.glyphicon.glyphicon-file
                 td.filecol: a(href='/resources/DCCRS2013writing.csv'): span.glyphicon.glyphicon-th
@@ -79,6 +81,12 @@ block content
               button(type='button' data-dismiss='modal' aria-hidden='true').close &times;
               h4.modal-title#infoModalLabel ACT Standards Info
               div.modal-body
-                div Place editorial content here about ACT Standards.				  						
+                div Whether you're a parent, teacher, counselor, or student, these sets of statements can help you:
+                  ul
+                    li communicate widely shared learning goals and educational expectations
+                    li relate the test scores to the types of skills needed for success in high school and beyond
+                    li understand the increasing complexity of skills across the score ranges in English, Mathematics, Reading, Science, and Writing				  						
+                a(href="http://www.act.org/standard/index.html") home 
+                  span.glyphicon.glyphicon-new-window 
               div.modal-footer
                 button(type='button' data-dismiss='modal').btn.btn-default Cancel

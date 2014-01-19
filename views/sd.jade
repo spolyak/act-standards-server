@@ -5,5 +5,29 @@ block content
       div.jumbotron
         h1 #{title}
         p Document: D#{id}
-        p Format: #{type}
-      
+        p Title: #{sd.title}
+        p Description: #{sd.description}
+        p: a(href="#{homelink}") home 
+          span.glyphicon.glyphicon-new-window
+      div.row.marketing
+        div.col-lg-6
+          h4 URI
+          p: small: a(href="#{sd.uri}") #{sd.uri}
+          h4 Subject
+          p #{sd.subject}
+          h4 Author
+          p #{sd.author}                     
+        div.col-lg-6
+          h4 Jurisdiction
+          p #{sd.jurisdiction}      
+          h4 Publisher
+          p #{sd.publisher}
+          h4 Status
+          p #{sd.publication_status}         
+      div.row.marketing
+        div.col-lg-6
+          h4 Has Child
+          p: ul
+            - for (var c in children) { 
+            li: small: a(href="#{children[c]}") #{children[c]} 
+            - }              
