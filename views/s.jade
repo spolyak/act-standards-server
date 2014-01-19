@@ -18,13 +18,14 @@ block content
           h4 Is Part Of
           p: small: a(href="#{standard.is_part_of}") #{standard.is_part_of}
           h4 Is Child Of
-          p: small: a(href="#{standard.is_part_of}") #{standard.is_part_of} 
+          p: small: a(href="#{standard.is_child_of}") #{standard.is_child_of} 
           h4 List Position
           p #{standard.list_id}                   
         div.row.marketing
         div.col-lg-6
           h4 Has Child
           p: ul
-            - for (var c in children) { 
+            - for (var c in children) {
+            - if (children[c].trim() !== '' ) {
             li: small: a(href="#{children[c]}") #{children[c]} 
-            - }            
+            - }}          
