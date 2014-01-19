@@ -1,5 +1,10 @@
 extends layout
  
 block content
-img(src='/images/logo-blue.png')
-p Statement S#{id}
+    div.container
+      div.jumbotron
+        h1 #{title}
+        p Statement: S#{id}
+        p Format: #{type}
+        p Description: #{standards.description}
+      

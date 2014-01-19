@@ -6,10 +6,9 @@ var iniparser = require('iniparser');
 // Read the ini file and populate the content on the config object
 var config = iniparser.parseSync('./config.ini');
 
-exports.list = function(req, res){
-	
-	StandardsModel.findById(req.params.id, function(err,
-			standard) {
+exports.list = function(req, res) {
+
+	StandardsModel.findById(req.params.id, function(err, standard) {
 		if (!err) {
 			if (!req.params.type) {
 				req.params.type = 'html';
@@ -18,7 +17,7 @@ exports.list = function(req, res){
 				title : config.title,
 				id : req.params.id,
 				type : req.params.type,
-				standard: standard
+				standard : standard
 			});
 		} else {
 			if ('CastError' === err.name && 'ObjectId' === err.type) {
@@ -28,6 +27,5 @@ exports.list = function(req, res){
 			}
 		}
 	});
-	
-	
+
 };
