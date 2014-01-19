@@ -12,15 +12,19 @@ block content
           p: small: a(href="#{standard.uri}") #{standard.uri}
           h4 Subject
           p #{standard.subject}
+          - if ({standard.score_range.trim() !== '' ) {
           h4 Score Range
-          p #{standard.score_range}          
+          p #{standard.score_range}
+          - }          
         div.col-lg-6      
           h4 Is Part Of
           p: small: a(href="#{standard.is_part_of}") #{standard.is_part_of}
           h4 Is Child Of
           p: small: a(href="#{standard.is_child_of}") #{standard.is_child_of} 
+          - if ({standard.list_id.trim() !== '' ) {
           h4 List Position
-          p #{standard.list_id}                   
+          p #{standard.list_id} 
+          - }                  
         div.row.marketing
         div.col-lg-6
           h4 Has Child
