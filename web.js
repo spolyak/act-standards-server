@@ -25,7 +25,6 @@ else{
      mongourl = 'mongodb://localhost/act-standards-db'; 
 	}
 }
-
 mongoose.connect(mongourl);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
