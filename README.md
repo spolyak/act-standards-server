@@ -9,8 +9,8 @@ TBD
 
 ## Developing
 * Using Node.js, express/jade, and mongo
-* mongo -u heroku -p <password> dharma.mongohq.com:<port>/<appname> 
-* mongoimport --username heroku --password <password> --host dharma.mongohq.com:<port> --db <appname> --collection standards --type csv --file ./writing.csv --headerline
+* mongo -u heroku -p password dharma.mongohq.com:port/appname 
+* mongoimport --username heroku --password password --host dharma.mongohq.com:port --db appname --collection standards --type csv --file ./writing.csv --headerline
 ** make sure using LF on csv
 
 Created with [Nodeclipse v0.4](https://github.com/Nodeclipse/nodeclipse-1)
