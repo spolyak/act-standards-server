@@ -33,6 +33,18 @@ db.once('open', function callback () {
   // yay!
 }); 
 
+var standardsSchema = mongoose.Schema({
+    name: String
+});
+standardsSchema.methods.translate = function () {
+        var greeting = this.name ? "Standard name is " + this.name : "I don't have a name";
+        console.log(greeting);
+};
+var StandardsModel = mongoose.model('StandardsModel', standardsSchema);
+
+//bootstrap in some mongo docs if necessary
+StandardsModel.findOne({name: 'CCRS'}, function(err,obj) { if(obj) {console.log('found set CCRS');} else{var ccrs = new StandardsModel({ name: 'CCRS' }); ccrs.save(); } });
+
 // Set the view engine
 app.set('view engine', 'jade');
 // Where to find the view files
