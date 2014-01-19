@@ -17,30 +17,21 @@ if(process.env.VCAP_SERVICES){
    mongourl = svcs['mongodb'][0].credentials.uri;
 }
 else{
-   //running locally or not on cloud foundry
-   mongourl = 'mongodb://localhost/act-standards-db'; 
+	//heroku
+	if(process.env.MONGOHQ_URL) {
+		mongourl = process.env.MONGOHQ_URL;
+	} else {
+     //running locally or not on cloud foundry
+     mongourl = 'mongodb://localhost/act-standards-db'; 
+	}
 }
 
 mongoose.connect(mongourl);
-
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
   // yay!
 }); 
-
-var standardsSchema = mongoose.Schema({
-    name: String
-});
-standardsSchema.methods.translate = function () {
-	var greeting = this.name ? "Standard name is " + this.name : "I don't have a name";
-	console.log(greeting);
-};
-var StandardsModel = mongoose.model('StandardsModel', standardsSchema);
-
-//bootstrap in some mongo docs if necessary
-StandardsModel.findOne({name: 'CCRS'}, function(err,obj) { if(obj) {console.log('found set CCRS');} else{var ccrs = new StandardsModel({ name: 'CCRS' }); ccrs.save(); } });
-StandardsModel.findOne({name: 'CRS'}, function(err,obj) { if(obj) {console.log('found set CRS');} else {var crs = new StandardsModel({ name: 'CRS' }); crs.save(); } });
 
 // Set the view engine
 app.set('view engine', 'jade');
@@ -58,5 +49,5 @@ app.use(express.logger('dev'));
 var routes = require('./routes')(app);
 
 http.createServer(app).listen(process.env.PORT || config.port, function() {
-	console.log('ACT Standards Server started');
+	console.log('ACT Standards Server started, mongourl' + mongourl);
 });
