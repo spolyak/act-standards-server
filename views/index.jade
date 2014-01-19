@@ -1,132 +1,74 @@
-extends layout
+doctype    
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title #{title}
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')        
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')    
+    script(src='/javascripts/jquery-2.0.3.min.js')
+    script(src='/javascripts/main.js')
+    link(rel='apple-touch-icon-precomposed', sizes='144x144', href='/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='114x114', href='/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', sizes='72x72', href='/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', href='/ico/apple-touch-icon-57-precomposed.png')
+    link(rel='shortcut icon', href='/ico/favicon.png')
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css')
+    script(src='/javascripts/modernizr.custom.js')
+    title #{title}
+  body
+    nav.menu#theMenu
+      div.menu-wrap
+        h1.logo
+          a(href='/library') Library
+          i.fa.fa-arrow-right.menu-close
+          a(href='/') Home
+      div#menuToggle: i.fa.fa-bars
+    div#headerwrap
+      div.container
+        div.row
+          div.col-lg-8.col-lg-offset-2
+            h1 ACT
+            h2 Standards Server
+            div.spacer
+            i.fa.fa-angle-down
+     div.container
+       div.row.mt
+         div.col-lg-10
+           h1 Access to human and machine readable ACT standards.
+             p ACT provides this area to access published standards.
+         div.col-lg-2
+           p.pull-right 
+             a(href='/library' role='button').btn.btn-green.btn-lg Library
+     div#cf
+       div.container
+         div.row
+           div.col-lg-8
+             div#mapwrap
+               img(src='/images/map1.gif')
+           div.col-lg-4
+             h4 ADDRESS
+                   p
+                   p ACT - National Office - Main Campus
+                   P P.O. Box 168
+                   p Iowa City, IA 52243-0168 USA
+                   p 319.337.1000
  
-block content
-    div.container
-      div.jumbotron
-        h1 #{title}
-        p Access to ACT's Published Standards
-        p: a(role='button' data-toggle="modal" data-target="#standardsModalInfo").btn.btn-primary.btn-lg Learn more
-        p: small Database reports sets: 
-          - for (var i in standardsMap) { 
-          span #{standardsMap[i].name} 
-          - }
-      div.panel.panel-info
-        div.panel-heading ACT Standards
-        div.panel-body
-          p
-            table.table.table-striped
-              tr
-                th Standard Set
-                th Subject
-                th.filecol HTML
-                th.filecol PDF
-                th.filecol CSV
-                th.filecol RDF
-                th.filecol JSON
-              tr
-                td College Readiness Standards (CRS)
-                td 
-                td.filecol 
-                td.filecol
-                td.filecol 
-                td.filecol
-                td.filecol               
-              tr
-                td 
-                td English
-                td.filecol: a(href='/resources/DCRSenglish'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCRSenglish.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCRSenglish.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCRSenglish.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCRSenglish.json'): img(src='/images/json.png')
-              tr
-                td 
-                td Mathematics
-                td.filecol: a(href='/resources/DCRSmathematics'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCRSmathematics.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCRSmathematics.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCRSmathematics.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCRSmathematics.json'): img(src='/images/json.png')  
-               tr
-                td 
-                td Reading
-                td.filecol: a(href='/resources/DCRSreading'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCRSreading.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCRSreading.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCRSreading.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCRSreading.json'): img(src='/images/json.png')  
-               tr
-                td 
-                td Science
-                td.filecol: a(href='/resources/DCRSscience'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCRSscience.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCRSscience.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCRSscience.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCRSscience.json'): img(src='/images/json.png')  
-              tr
-                td 
-                td Writing
-                td.filecol: a(href='/resources/DCRSwriting'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCRSwriting.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCRSwriting.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCRSwriting.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCRSwriting.json'): img(src='/images/json.png')                                                       
-              tr
-                td College and Career Readiness Standards (CCRS)
-                td 
-                td.filecol 
-                td.filecol
-                td.filecol 
-                td.filecol
-                td.filecol               
-              tr
-                td 
-                td English
-                td.filecol: a(href='/resources/DCCRS2013english'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013english.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013english.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013english.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCCRS2013english.json'): img(src='/images/json.png') 
-              tr
-                td 
-                td Mathematics
-                td.filecol: a(href='/resources/DCCRS2013mathematics'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013mathematics.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013mathematics.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013mathematics.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCCRS2013mathematics.json'): img(src='/images/json.png') 
-               tr
-                td 
-                td Reading
-                td.filecol: a(href='/resources/DCCRS2013reading'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013reading.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013reading.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013reading.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCCRS2013reading.json'): img(src='/images/json.png')
-               tr
-                td 
-                td Science
-                td.filecol: a(href='/resources/DCCRS2013science'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013science.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013science.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013science.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCCRS2013science.json'): img(src='/images/json.png') 
-              tr
-                td 
-                td Writing
-                td.filecol: a(href='/resources/DCCRS2013writing'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013writing.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013writing.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013writing.rdf'): img(src='/images/rdf.gif') 
-                td.filecol: a(href='/resources/DCCRS2013writing.json'): img(src='/images/json.png')                                                      
-      div: footer © 2013 BY ACT, INC.
-      div(tabindex='-1' role='dialog' aria-labelledby='infoModalLabel' aria-hidden='true').modal.fade#standardsModalInfo 
-        div.modal-dialog
-          div.modal-content
-            div.modal-header
-              button(type='button' data-dismiss='modal' aria-hidden='true').close &times;
-              h4.modal-title#infoModalLabel ACT Standards Info
-              div.modal-body
-                div Place editorial content here about ACT Standards.				  						
-              div.modal-footer
-                button(type='button' data-dismiss='modal').btn.btn-default Cancel
+    script(src='/bootstrap/js/bootstrap.min.js')              
+    script(src='/javascripts/main-link.js')  
+    script(src='/javascripts/masonry.pkgd.min.js')  
+    script(src='/javascripts/imagesloaded.js')  
+    script(src='/javascripts/classie.js')  
+    script(src='/javascripts/AnimOnScroll.js')  
+    script
+      new AnimOnScroll( document.getElementById( 'grid' ), {
+        minDuration : 0.4,
+        maxDuration : 0.7,
+        viewportFactor : 0.2
+       } );                   
+    
