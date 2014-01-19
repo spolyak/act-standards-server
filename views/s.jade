@@ -27,7 +27,7 @@ block content
           - }                  
         div.row.marketing
         div.col-lg-6
-          - if (!(children.length === 1 && children[0].trim() !== '' )) {
+          - if (!(children.length === 1 && children[0].trim() === '' )) {
           h4 Has Child
           p: ul
             - for (var c in children) {
