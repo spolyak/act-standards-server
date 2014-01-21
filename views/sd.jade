@@ -16,18 +16,30 @@ block content
           h4 Subject
           p #{sd.subject}
           h4 Status
-          p #{sd.publication_status}                     
-        div.col-lg-6
+          p #{sd.publication_status}
           h4 Jurisdiction
           p #{sd.jurisdiction}      
           h4 Publisher
           p #{sd.publisher}
           h4 Author
-          p #{sd.author}            
-      div.row.marketing
+          p #{sd.author}                            
         div.col-lg-6
           h4 Has Child
           p: ul
             - for (var c in children) { 
             li: small: a(href="#{children[c]}") #{children[c]} 
-            - }              
+            - }
+          p: a(role='button' data-toggle="modal" data-target="#standardsModalInfo").btn.btn-primary.btn-lg Graph
+                        
+      div(tabindex='-1' role='dialog' aria-labelledby='infoModalLabel' aria-hidden='true').modal.fade#standardsModalInfo 
+        div.modal-dialog
+          div.modal-content
+            div.modal-header
+              button(type='button' data-dismiss='modal' aria-hidden='true').close &times;
+              h4.modal-title#infoModalLabel ACT Standards Graph
+              div.modal-body
+                p Sample Graph (wheel zoom, click drag to pan, use alt-click on circle to move a node) 
+                div.graph
+              div.modal-footer
+                button(type='button' data-dismiss='modal').btn.btn-default Cancel          
+     script(src='/javascripts/vis.js')                          

@@ -37,4 +37,10 @@ var standardsSchema = mongoose.Schema({
 	created : String
 });
 
+standardsSchema.statics.findByURI = function(uri, callback) {
+	this.findOne({
+		uri : uri
+	}, 'description has_child', callback);
+};
+
 exports.StandardsModel = mongoose.model('standards', standardsSchema);
