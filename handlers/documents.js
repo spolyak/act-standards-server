@@ -79,7 +79,7 @@ exports.list = function(req, res) {
 				children : sd.has_child.split(',')
 			});
 		} else {
-			if ('CastError' === err.name && 'ObjectId' === err.type) {
+			if (err === null) {
 				return res.status(404).send();
 			} else {
 				return res.status(500).send(err);
