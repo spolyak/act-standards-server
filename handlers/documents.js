@@ -66,8 +66,8 @@ exports.list = function(req, res) {
 	StandardsModel.findOne({
 		uri : new RegExp('D' + req.params.id + '$', "")
 	}, function(err, sd) {
-		if (!err) {
-			if (!req.params.type && sd !== null) {
+		if (!err && sd !== null) {
+			if (!req.params.type) {
 				req.params.type = 'html';
 			}
 			res.render('sd', {
