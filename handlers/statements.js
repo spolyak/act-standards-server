@@ -12,7 +12,7 @@ exports.list = function(req, res) {
 		uri : new RegExp('S' + req.params.id + '$', "")
 	}, function(err, standard) {
 		if (!err) {
-			if (!req.params.type) {
+			if (!req.params.type && standard !== null) {
 				req.params.type = 'html';
 			}
 			res.render('s', {

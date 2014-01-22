@@ -67,7 +67,7 @@ exports.list = function(req, res) {
 		uri : new RegExp('D' + req.params.id + '$', "")
 	}, function(err, sd) {
 		if (!err) {
-			if (!req.params.type) {
+			if (!req.params.type && sd !== null) {
 				req.params.type = 'html';
 			}
 			res.render('sd', {
