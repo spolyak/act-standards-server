@@ -20,7 +20,12 @@ block content
           h4 Is Part Of
           p: small: a(href="#{standard.is_part_of}") #{standard.is_part_of}
           h4 Is Child Of
-          p: small: a(href="#{standard.is_child_of}") #{standard.is_child_of} 
+          p: small: ul 
+          - var children_of = standard.is_child_of.split(',');
+          - for (var c in children_of) {
+            - if (children_of[c].trim() !== '' ) {
+            li: a(href="#{children_of[c]}") #{children_of[c]}
+          - }} 
           - if (standard.list_id.trim() !== '' ) {
           h4 List Position
           p #{standard.list_id} 
