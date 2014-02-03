@@ -24,7 +24,7 @@ block content
           - var children_of = standard.is_child_of.split(',');
           - for (var c in children_of) {
             - if (children_of[c].trim() !== '' ) {
-            li: a(href="#{children_of[c]}") #{children_of[c]}
+            li: small: a(href="#{children_of[c]}") #{children_of[c]}
           - }} 
           - if (standard.list_id.trim() !== '' ) {
           h4 List Position
