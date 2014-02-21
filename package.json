@@ -10,7 +10,8 @@
 	    "express": "~3.3.4",
 	    "jade": "*",
 	    "iniparser" : "*",
-	    "mongoose": "*"
+	    "mongoose": "*",
+	    "async": "*"
 	  },
 	  "engines": {
 	    "node": "0.10.x",

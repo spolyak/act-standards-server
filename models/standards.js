@@ -34,7 +34,8 @@ var standardsSchema = mongoose.Schema({
 	has_child : String,
 	indexing_status : String,
 	creator : String,
-	created : String
+	created : String,
+	children: []
 });
 
 standardsSchema.statics.findByURI = function(uri, callback) {
