@@ -1,9 +1,5 @@
 var sm = require('../models/standards');
-var async = require('async');
 var StandardsModel = sm.StandardsModel;
-
-var doc = {};
-var results = [];
 
 exports.json = function(req, res) {
 	StandardsModel.find({}, function(err, docs) {
@@ -25,16 +21,13 @@ exports.json = function(req, res) {
 };
 
 function loadChildren(source, docs) {
-
 	var children = source.children;
 	source.children = [];
 	for (var i = 0; i < children.length; i++) {
 		for (var j = 0; j < docs.length; j++) {
-			// console.log( children[i] + " vs " + docs[j]._id);
 			if (docs[j]._id.equals(children[i])) {
 				var child = loadChildren(docs[j], docs);
 				source.children.push(child);
-				// console.log("found 1");
 			}
 		}
 	}
