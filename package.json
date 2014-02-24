@@ -11,7 +11,8 @@
 	    "jade": "*",
 	    "iniparser" : "*",
 	    "mongoose": "*",
-	    "async": "*"
+	    "async": "*",
+	    "xml-writer" : "*"
 	  },
 	  "engines": {
 	    "node": "0.10.x",
