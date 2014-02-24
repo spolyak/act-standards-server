@@ -17,6 +17,9 @@ exports.xml = function(req, res) {
 				writeRdfTag(xw);
 				writeDescripton(xw, req.params.id);
 				writeDocument(xw, req.params.id, sd);
+				for (var i = 0; i < standards.length; i++) {
+					writeStandard(xw,standards[i]);
+				}
 
 				xw.endDocument();
 				res.send(xw.toString());
@@ -92,87 +95,100 @@ function writeDescripton(xw, id) {
 }
 
 function writeDocument(xw, id, sd) {
-
 	xw.startElement('asn:StandardDocument');
 	xw.writeAttribute('rdf:about',
 			'http://act-standards-server.herokuapp.com/rdf/' + id);
+	xw.startElement('asn:jurisdiction');
+	xw.writeAttribute('rdf:resource', sd.jurisdiction);
+	xw.endElement();
+	xw.startElement('dc:title');
+	xw.writeAttribute('xml:lang', 'en-US');
+	xw.text(sd.title);
+	xw.endElement();
+	xw.startElement('dcterms:description');
+	xw.writeAttribute('xml:lang', 'en-US');
+	xw.text(sd.description);
+	xw.endElement();
+	xw.startElement('dcterms:source');
+	xw.writeAttribute('rdf:resource', sd.uri);
+	xw.endElement();
+	xw.startElement('asn:publicationStatus');
+	xw.writeAttribute('rdf:resource',
+			'http://purl.org/ASN/scheme/ASNPublicationStatus/'
+					+ sd.publication_status);
+	xw.endElement();
+	xw.startElement('asn:repositoryDate');
+	xw.writeAttribute('rdf:datatype', 'http://purl.org/dc/terms/W3CDTF');
+	xw.text('2013');
+	xw.endElement();
+	xw.startElement('dcterms:valid');
+	xw.writeAttribute('rdf:datatype', 'http://purl.org/dc/terms/W3CDTF');
+	xw.text(sd.date_valid);
+	xw.endElement();
+	xw.startElement('dcterms:tableOfContents');
+	xw.writeAttribute('rdf:resource',
+			'http://act-standards-server.herokuapp.com/data/' + id);
+	xw.endElement();
+	xw.startElement('dcterms:subject');
+	xw.writeAttribute('rdf:resource', 'http://purl.org/ASN/scheme/ASNTopic/'
+			+ sd.subject.toLowerCase());
+	xw.endElement();
+	xw.startElement('dcterms:language');
+	xw.writeAttribute('rdf:resource',
+			'http://id.loc.gov/vocabulary/iso639-2/eng');
+	xw.endElement();
 
-	/*
-	 * <asn:jurisdiction
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNJurisdiction/AL"/> <dc:title
-	 * xml:lang="en-US">Alabama Course of Study: English Language Arts</dc:title>
-	 * <dcterms:description xml:lang="en-US"> The 2010 Alabama Course of Study:
-	 * English Language Arts presents a sound curriculum designed to prepare
-	 * students for the English language arts demands in both college studies
-	 * and career opportunities. Local school system teachers and administrators
-	 * will find this document to contain a challenging set of content standards
-	 * for students at each grade level. I encourage each system to use this
-	 * document to develop local curriculum guides that determine how students
-	 * will achieve these standards and perhaps go beyond them.
-	 * </dcterms:description> <dcterms:source
-	 * rdf:resource="https://docs.alsde.edu/documents/54/1%202010%20Alabama%20English%20Language%20Arts%20Course%20of%20Study.pdf"/>
-	 * <asn:publicationStatus
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNPublicationStatus/Published"/>
-	 * <asn:repositoryDate
-	 * rdf:datatype="http://purl.org/dc/terms/W3CDTF">2013-08-19</asn:repositoryDate>
-	 * <dcterms:valid rdf:datatype="http://purl.org/dc/terms/W3CDTF">2010</dcterms:valid>
-	 * <dcterms:tableOfContents
-	 * rdf:resource="http://asn.jesandco.org/resources/D2505664/manifest.json"/>
-	 * <dcterms:subject
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNTopic/english"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/K"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/1"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/2"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/3"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/4"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/5"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/6"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/7"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/8"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/9"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/10"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/11"/>
-	 * <dcterms:educationLevel
-	 * rdf:resource="http://purl.org/ASN/scheme/ASNEducationLevel/12"/>
-	 * <dcterms:language
-	 * rdf:resource="http://id.loc.gov/vocabulary/iso639-2/eng"/> <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2505665"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2505680"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2505785"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2505900"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2505973"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506008"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506043"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506058"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506300"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506364"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506373"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506482"/>
-	 * <gemq:hasChild
-	 * rdf:resource="http://asn.jesandco.org/resources/S2506493"/>
-	 * </asn:StandardDocument>
-	 */
+	var children = sd.has_child.split(",");
+	for (var i = 0; i < children.length; i++) {
+		xw.startElement('gemq:hasChild');
+		xw.writeAttribute('rdf:resource', children[i]);
+		xw.endElement();
+	}
+
+	xw.endElement();
 }
+
+function writeStandard(xw, s) {
+	
+	xw.startElement('asn:Statement');
+	xw.writeAttribute('rdf:about', s.uri);
+	xw.startElement('asn:authorityStatus');
+	xw.writeAttribute('rdf:resource', 'http://purl.org/ASN/scheme/ASNAuthorityStatus/' + s.authority_status);
+	xw.endElement();
+	xw.startElement('dcterms:created');
+	xw.writeAttribute('rdf:datatype', 'http://purl.org/dc/terms/W3CDTF');
+	xw.text('2013');
+	xw.endElement();
+	xw.startElement('dcterms:isPartOf');
+	xw.writeAttribute('rdf:resource', s.is_part_of);
+	xw.endElement();
+	xw.startElement('dcterms:creator');
+	xw.writeAttribute('rdf:resource', s.uri);
+	xw.endElement();	
+	xw.startElement('dcterms:subject');
+	xw.writeAttribute('rdf:resource', 'http://purl.org/ASN/scheme/ASNTopic/'
+			+ s.subject.toLowerCase());
+	xw.endElement();	
+	xw.startElement('dcterms:description');
+	xw.writeAttribute('xml:lang', 'en-US');
+	xw.text(s.description);
+	xw.endElement();	
+	xw.startElement('dcterms:language');
+	xw.writeAttribute('rdf:resource', 'http://id.loc.gov/vocabulary/iso639-2/eng');
+	xw.endElement();	
+	xw.startElement('dcterms:educationLevel');
+	xw.writeAttribute('rdf:resource', 'http://purl.org/ACT/scheme/ACTScoreRange/' + s.score_range);
+	xw.endElement();
+	xw.startElement('gemq:isChildOf');
+	xw.writeAttribute('rdf:resource', s.is_child_of);
+	xw.endElement();
+	var children = s.has_child.split(",");
+	for (var i = 0; i < children.length; i++) {
+		xw.startElement('gemq:hasChild');
+		xw.writeAttribute('rdf:resource', children[i]);
+		xw.endElement();
+	}	
+	
+	xw.endElement();
+}
+
