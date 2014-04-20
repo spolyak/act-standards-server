@@ -1,6 +1,7 @@
 var http = require('http');
 var express = require('express');
 var app = express();
+var apiContext = '/api/rest/v0.1/';
 
 //Load the iniparser module
 var iniparser = require('iniparser');
