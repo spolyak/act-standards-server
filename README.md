@@ -7,9 +7,9 @@ This project is designed to provide HTML and REST service access to published AC
 ## Usage
 * /api/rest/v0.1/statments (GET) Fetch all statements
 * /api/rest/v0.1/statments (POST) Publish all statments
-* /api/rest/v0.1/students/{id} (GET) Fetch one statement by id
-* /api/rest/v0.1/students/{id} (PUT) Update statement
-* /api/rest/v0.1/students/{id} (DELETE) Remove a statement
+* /api/rest/v0.1/statments/{id} (GET) Fetch one statement by id
+* /api/rest/v0.1/statments/{id} (PUT) Update statement
+* /api/rest/v0.1/statments/{id} (DELETE) Remove a statement
 
 ## Developing
 * Using Node.js, express/jade, and mongo
