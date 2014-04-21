@@ -46,7 +46,7 @@ app.use(express.errorHandler());
 // add dev level logging
 app.use(express.logger('dev'));
 
-var routes = require('./routes')(app);
+var routes = require('./routes')(app,apiContext);
 
 http.createServer(app).listen(process.env.PORT || config.port, function() {
 	console.log('ACT Standards Server started, mongourl: ' + mongourl);
