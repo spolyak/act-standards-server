@@ -6,6 +6,7 @@ var statements = require('./handlers/statements');
 var data = require('./handlers/data');
 var rdf = require('./handlers/rdf');
 //apis
+var api = require('./handlers/api');
 var statementsApi = require('./handlers/statementsApi');
 
 module.exports = function(app, apiContext) {
@@ -19,6 +20,7 @@ module.exports = function(app, apiContext) {
   app.get('/rdf/:id', rdf.xml);
   
   //api routes
+  app.get('/api',api.index);
   app.get(apiContext + 'statements', statementsApi.list);
   app.post(apiContext + 'statements', statementsApi.create);
   app.get(apiContext + 'statements/:id', statementsApi.show);
