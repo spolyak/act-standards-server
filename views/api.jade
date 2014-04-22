@@ -1,0 +1,13 @@
+extends layout
+ 
+block content
+    div.container
+      div.jumbotron
+        h1 ACT Standards API
+        p ACT offers access to its published standards via a managed API in its API store. Users can create an account, register an application and then subscribe to the ACT standards REST API. The subscription provides security credentials that can be used to invoke the services.
+        p: a(role='button' href="#{apimanager_url}").btn.btn-primary.btn-lg Subscribe to the API
+      div.panel.panel-info
+        div.panel-heading 
+        div.panel-body
+          p: img(src="/images/api.png")                                                                         
+      div: footer © 2014 by ACT, Inc. All rights reserved.

@@ -3,8 +3,12 @@ var sm = require('../models/standards');
 var StandardsModel = sm.StandardsModel;
 
 exports.list = function(req, res) {
-
-	StandardsModel.find(function(err, statements) {
+	
+	var descriptionRegex = new RegExp(req.query.description, 'i');
+    var subjectRegex = new RegExp(req.query.subject, 'i');
+	var query = StandardsModel.find({description: descriptionRegex, subject: subjectRegex}, { 'description': 1,  'subject': 1});
+	
+	query.exec(function(err, statements) {
 		if (!err) {
 					  
 			var jwt = req.headers['x-jwt-assertion'];
