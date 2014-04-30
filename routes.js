@@ -22,6 +22,7 @@ module.exports = function(app, apiContext) {
   //api routes
   app.get('/api',api.index);
   app.get(apiContext + 'statements', statementsApi.list);
+  app.get(apiContext + 'statements/search', statementsApi.list);
   app.post(apiContext + 'statements', statementsApi.create);
   app.get(apiContext + 'statements/:id', statementsApi.show);
   app.delete(apiContext + 'statements/:id', statementsApi.destroy);

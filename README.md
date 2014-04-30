@@ -6,7 +6,7 @@ This project is designed to provide HTML and REST service access to published AC
 
 ## Usage
 * /api/rest/v0.1/statments (GET) Fetch all statements
-* /api/rest/v0.1/statments?description=triangle&subject=\{mathematics,reading,english,writing\} (GET) Search for statements based on description and/or subject
+* /api/rest/v0.1/statments/search?description=triangle&subject=\{mathematics,reading,english,writing\} (GET) Search for statements based on description and/or subject
 * /api/rest/v0.1/statments (POST) Publish all statments
 * /api/rest/v0.1/statments/{id} (GET) Fetch one statement by id
 * /api/rest/v0.1/statments/{id} (PUT) Update statement
