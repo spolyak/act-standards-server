@@ -4,8 +4,17 @@ block content
     div.container
       div.jumbotron
         h1 #{title}
-        p Access to ACT's Published Standards
+        p Access to ACT's Published Standards 
         p: a(role='button' data-toggle="modal" data-target="#standardsModalInfo").btn.btn-primary.btn-lg Learn more
+      div.panel.panel-info
+        div.panel-heading: span.glyphicon.glyphicon-search        
+        div.panel-body
+          p 
+              input(type='search' name='standards-search').standards-query 
+              &nbsp;
+              a(role='button').find-standards.btn.btn-primary Find
+              p
+                span.find-standards-results
       div.panel.panel-info
         div.panel-heading ACT Standards
         div.panel-body

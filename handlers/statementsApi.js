@@ -6,7 +6,7 @@ exports.list = function(req, res) {
 	
 	var descriptionRegex = new RegExp(req.query.description, 'i');
     var subjectRegex = new RegExp(req.query.subject, 'i');
-	var query = StandardsModel.find({description: descriptionRegex, subject: subjectRegex}, { 'description': 1,  'subject': 1});
+	var query = StandardsModel.find({description: descriptionRegex, subject: subjectRegex}, { 'description': 1,  'subject': 1}).select('description subject uri');
 	
 	query.exec(function(err, statements) {
 		if (!err) {
