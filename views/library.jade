@@ -4,84 +4,117 @@ block content
     div.container
       div.jumbotron
         h1 #{title}
-        p Access to ACT's Published Standards 
+        p Access to ACT's Published Standards
         p: a(role='button' data-toggle="modal" data-target="#standardsModalInfo").btn.btn-primary.btn-lg Learn more
-      div.panel.panel-info
-        div.panel-heading: span.glyphicon.glyphicon-search        
-        div.panel-body
-          p 
-              input(type='search' name='standards-search').standards-query 
-              &nbsp;
-              a(role='button').find-standards.btn.btn-primary Find
-              p
-                span.find-standards-results
-      div.panel.panel-info
-        div.panel-heading ACT Standards
-        div.panel-body
-          p
-            table.table.table-striped
-              tr
-                th Standard Set
-                th Subject
-                th.filecol HTML
-                th.filecol PDF
-                th.filecol CSV
-                th.filecol RDF
-                th.filecol JSON                                                     
-              tr
-                td: a(href="http://www.act.org/standard/index.html") College and Career Readiness Standards (CCRS)  
-                  span.glyphicon.glyphicon-new-window 
-                td 
-                td.filecol 
-                td.filecol
-                td.filecol 
-                td.filecol 
-                td.filecol               
-              tr
-                td 
-                td: a(href="http://www.act.org/standard/planact/english/index.html") English 
-                  span.glyphicon.glyphicon-new-window
-                td.filecol: a(href='/resources/DCCRS2013english'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013english.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013english.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013english.rdf'): img(src='/images/rdf.gif')              
-                td.filecol: a(href='/resources/DCCRS2013english.json'): img(src='/images/json.png') 
-              tr
-                td 
-                td: a(href="http://www.act.org/standard/planact/math/index.html") Mathematics 
-                  span.glyphicon.glyphicon-new-window
-                td.filecol: a(href='/resources/DCCRS2013math'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013math.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013math.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013math.rdf'): img(src='/images/rdf.gif')                
-                td.filecol: a(href='/resources/DCCRS2013math.json'): img(src='/images/json.png')                
-               tr
-                td 
-                td: a(href="http://www.act.org/standard/planact/reading/index.html") Reading 
-                  span.glyphicon.glyphicon-new-window                
-                td.filecol: a(href='/resources/DCCRS2013reading'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013reading.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013reading.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013reading.rdf'): img(src='/images/rdf.gif')              
-                td.filecol: a(href='/resources/DCCRS2013reading.json'): img(src='/images/json.png')           
-               tr
-                td 
-                td: a(href="http://www.act.org/standard/planact/science/index.html") Science 
-                  span.glyphicon.glyphicon-new-window                
-                td.filecol: a(href='/resources/DCCRS2013science'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013science.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013science.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013science.rdf'): img(src='/images/rdf.gif')            
-                td.filecol: a(href='/resources/DCCRS2013science.json'): img(src='/images/json.png')               
-              tr
-                td 
-                td: a(href="http://www.act.org/standard/planact/writing/index.html") Writing 
-                  span.glyphicon.glyphicon-new-window                
-                td.filecol: a(href='/resources/DCCRS2013writing'): span.glyphicon.glyphicon-eye-open
-                td.filecol: a(href='/resources/DCCRS2013writing.pdf'): span.glyphicon.glyphicon-file
-                td.filecol: a(href='/resources/DCCRS2013writing.csv'): span.glyphicon.glyphicon-th
-                td.filecol: a(href='/resources/DCCRS2013writing.rdf'): img(src='/images/rdf.gif')                
-                td.filecol: a(href='/resources/DCCRS2013writing.json'): img(src='/images/json.png')                                                                     
+      #accordion.panel-group
+        .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
+                  | Search
+                  | 
+                  span.glyphicon.glyphicon-search
+            #collapseOne.panel-collapse.collapse
+              .panel-body
+                p 
+                  input(type='search' name='standards-search').standards-query 
+                  | 
+                  | 
+                  a(role='button').find-standards.btn.btn-primary Find
+                  | &nbsp;
+                  a(href='/library',role='button').btn.btn-primary Reset
+                  p
+                    span.find-standards-results
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo')
+                  | Graph
+                  | 
+                  span.glyphicon.glyphicon-transfer
+            #collapseTwo.panel-collapse.collapse
+              .panel-body       
+                p
+                  #flashContent
+                    a(href='http://www.adobe.com/go/getflash')
+                      img(src='http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif', alt='Get Adobe Flash player')
+                    p This page requires Flash Player version 8.0.0 or higher.
+          .panel.panel-default
+            .panel-heading
+              h4.panel-title
+                a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree')
+                  | List
+                  | 
+                  span.glyphicon.glyphicon-list
+            #collapseThree.panel-collapse.collapse.in
+              .panel-body
+                div.panel.panel-info
+                  div.panel-heading ACT Standards
+                  div.panel-body
+                    p
+                      table.table.table-striped
+                        tr
+                          th Standard Set
+                          th Subject
+                          th.filecol HTML
+                          th.filecol PDF
+                          th.filecol CSV
+                          th.filecol RDF
+                          th.filecol JSON                                                     
+                        tr
+                          td: a(href="http://www.act.org/standard/index.html") College and Career Readiness Standards (CCRS)  
+                            span.glyphicon.glyphicon-new-window 
+                          td 
+                          td.filecol 
+                          td.filecol
+                          td.filecol 
+                          td.filecol 
+                          td.filecol 
+                        tr
+                          td 
+                          td: a(href="http://www.act.org/standard/planact/english/index.html") English 
+                            span.glyphicon.glyphicon-new-window
+                          td.filecol: a(href='/resources/DCCRS2013english'): span.glyphicon.glyphicon-eye-open
+                          td.filecol: a(href='/resources/DCCRS2013english.pdf'): span.glyphicon.glyphicon-file
+                          td.filecol: a(href='/resources/DCCRS2013english.csv'): span.glyphicon.glyphicon-th
+                          td.filecol: a(href='/resources/DCCRS2013english.rdf'): img(src='/images/rdf.gif')              
+                          td.filecol: a(href='/resources/DCCRS2013english.json'): img(src='/images/json.png') 
+                        tr
+                          td 
+                          td: a(href="http://www.act.org/standard/planact/math/index.html") Mathematics 
+                            span.glyphicon.glyphicon-new-window
+                          td.filecol: a(href='/resources/DCCRS2013math'): span.glyphicon.glyphicon-eye-open
+                          td.filecol: a(href='/resources/DCCRS2013math.pdf'): span.glyphicon.glyphicon-file
+                          td.filecol: a(href='/resources/DCCRS2013math.csv'): span.glyphicon.glyphicon-th
+                          td.filecol: a(href='/resources/DCCRS2013math.rdf'): img(src='/images/rdf.gif')                
+                          td.filecol: a(href='/resources/DCCRS2013math.json'): img(src='/images/json.png')                
+                         tr
+                          td 
+                          td: a(href="http://www.act.org/standard/planact/reading/index.html") Reading 
+                            span.glyphicon.glyphicon-new-window                
+                          td.filecol: a(href='/resources/DCCRS2013reading'): span.glyphicon.glyphicon-eye-open
+                          td.filecol: a(href='/resources/DCCRS2013reading.pdf'): span.glyphicon.glyphicon-file
+                          td.filecol: a(href='/resources/DCCRS2013reading.csv'): span.glyphicon.glyphicon-th
+                          td.filecol: a(href='/resources/DCCRS2013reading.rdf'): img(src='/images/rdf.gif')              
+                          td.filecol: a(href='/resources/DCCRS2013reading.json'): img(src='/images/json.png')           
+                         tr
+                          td 
+                          td: a(href="http://www.act.org/standard/planact/science/index.html") Science 
+                            span.glyphicon.glyphicon-new-window                
+                          td.filecol: a(href='/resources/DCCRS2013science'): span.glyphicon.glyphicon-eye-open
+                          td.filecol: a(href='/resources/DCCRS2013science.pdf'): span.glyphicon.glyphicon-file
+                          td.filecol: a(href='/resources/DCCRS2013science.csv'): span.glyphicon.glyphicon-th
+                          td.filecol: a(href='/resources/DCCRS2013science.rdf'): img(src='/images/rdf.gif')            
+                          td.filecol: a(href='/resources/DCCRS2013science.json'): img(src='/images/json.png')               
+                        tr
+                          td 
+                          td: a(href="http://www.act.org/standard/planact/writing/index.html") Writing 
+                            span.glyphicon.glyphicon-new-window                
+                          td.filecol: a(href='/resources/DCCRS2013writing'): span.glyphicon.glyphicon-eye-open
+                          td.filecol: a(href='/resources/DCCRS2013writing.pdf'): span.glyphicon.glyphicon-file
+                          td.filecol: a(href='/resources/DCCRS2013writing.csv'): span.glyphicon.glyphicon-th
+                          td.filecol: a(href='/resources/DCCRS2013writing.rdf'): img(src='/images/rdf.gif')                
+                          td.filecol: a(href='/resources/DCCRS2013writing.json'): img(src='/images/json.png')             
       div: footer © 2014 by ACT, Inc. All rights reserved.
       div(tabindex='-1' role='dialog' aria-labelledby='infoModalLabel' aria-hidden='true').modal.fade#standardsModalInfo 
         div.modal-dialog

@@ -49,5 +49,5 @@ app.use(express.logger('dev'));
 var routes = require('./routes')(app,apiContext);
 
 http.createServer(app).listen(process.env.PORT || config.port, function() {
-	console.log('ACT Standards Server started, mongourl: ' + mongourl);
+	console.log('ACT Standards Server started, mongourl: ' + mongourl + ' port is: ' + (process.env.PORT || config.port) );
 });
